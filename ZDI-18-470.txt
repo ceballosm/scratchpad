@@ -1,0 +1,2 @@
+looks like the tftp service allows arbitrary files 
+uploaded to "%SYSTEMROOT%\system32"

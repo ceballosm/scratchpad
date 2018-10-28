@@ -59,7 +59,7 @@ Service.   The PC will send "UTC" commands to the clock and the clock returns UT
 -------------------------------------------------------------------------------
 3.	Version History
 -------------------------------------------------------------------------------
-Version 2.0.1.0
+Version 2.0.1.0 ???DID THEY TELL YOU???
         - Fix for unquoted service path enumeration vulnerability.
 Version 2.0.0.11
 	- Initial release using the Time Provider scheme.

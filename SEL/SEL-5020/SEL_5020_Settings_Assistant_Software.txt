@@ -1,0 +1,123 @@
+SEL-5020 Settings Assistant Software
+Version: 3.60.3.0
+Date Code: 20110809
+
+
+SEL-5020 Settings Assistant Software contains a buffer overflow in the 'Sel5020.exe' process. 
+
+When the application processes a overly large buffer
+from an attacker controlled server, arbitrary code can be executed in
+the context of the currently logged-in user.
+
+//debug
+
+FAULTING_IP: 
+Sel5020+1c8f
+04191c8f 895004          mov     dword ptr [eax+4],edx
+
+EXCEPTION_RECORD:  ffffffff -- (.exr 0xffffffffffffffff)
+ExceptionAddress: 04191c8f (Sel5020+0x00001c8f)
+   ExceptionCode: c0000005 (Access violation)
+  ExceptionFlags: 00000000
+NumberParameters: 2
+   Parameter[0]: 00000001
+   Parameter[1]: 41414145
+Attempt to write to address 41414145
+
+FAULTING_THREAD:  00000ba8
+
+PROCESS_NAME:  Sel5020.exe
+
+ERROR_CODE: (NTSTATUS) 0xc0000005 - The instruction at 0x%08lx referenced memory at 0x%08lx. The memory could not be %s.
+
+EXCEPTION_CODE: (NTSTATUS) 0xc0000005 - The instruction at 0x%08lx referenced memory at 0x%08lx. The memory could not be %s.
+
+EXCEPTION_PARAMETER1:  00000001
+
+EXCEPTION_PARAMETER2:  41414145
+
+WRITE_ADDRESS:  41414145 
+
+FOLLOWUP_IP: 
+Sel5020+1c8f
+04191c8f 895004          mov     dword ptr [eax+4],edx
+
+NTGLOBALFLAG:  0
+
+APPLICATION_VERIFIER_FLAGS:  0
+
+BUGCHECK_STR:  APPLICATION_FAULT_STRING_DEREFERENCE_INVALID_POINTER_WRITE_FILL_PATTERN_41414141
+
+PRIMARY_PROBLEM_CLASS:  STRING_DEREFERENCE_FILL_PATTERN_41414141
+
+DEFAULT_BUCKET_ID:  STRING_DEREFERENCE_FILL_PATTERN_41414141
+
+LAST_CONTROL_TRANSFER:  from 0419274e to 04191c8f
+
+STACK_TEXT:  
+WARNING: Stack unwind information not available. Following frames may be wrong.
+0012fc98 0419274e 04193e75 02690f48 04194838 Sel5020+0x1c8f
+0012fd1c 041a66d1 0431f040 0431f03c 041c0f58 Sel5020+0x274e
+0012fd2c 041c0f8c 04198dec 0431f4a8 04193cc2 Sel5020+0x166d1
+0012fd30 04198dec 0431f4a8 04193cc2 0012ff88 Sel5020+0x30f8c
+0012fd38 04193cc2 0012ff88 00000000 00000000 Sel5020+0x8dec
+0012fd4c 0431577f 00000000 00000000 00000000 Sel5020+0x3cc2
+0012fd50 00000000 00000000 00000000 00000000 Sel5020+0x18577f
+
+
+SYMBOL_STACK_INDEX:  0
+
+SYMBOL_NAME:  Sel5020+1c8f
+
+FOLLOWUP_NAME:  MachineOwner
+
+MODULE_NAME: Sel5020
+
+DEBUG_FLR_IMAGE_TIMESTAMP:  2a425e19
+
+STACK_COMMAND:  ~0s ; kb
+
+BUCKET_ID:  APPLICATION_FAULT_STRING_DEREFERENCE_INVALID_POINTER_WRITE_FILL_PATTERN_41414141_Sel5020+1c8f
+
+IMAGE_NAME:  C:\Program Files\SEL\SEL5020\Sel5020.exe
+
+FAILURE_BUCKET_ID:  STRING_DEREFERENCE_FILL_PATTERN_41414141_c0000005_C:_Program_Files_SEL_SEL5020_Sel5020.exe!Unknown
+
+WATSON_STAGEONE_URL:  http://watson.microsoft.com/StageOne/Sel5020_exe/3_60_3_0/2a425e19/Sel5020_exe/3_60_3_0/2a425e19/c0000005/00001c8f.htm?Retriage=1
+
+Followup: MachineOwner
+---------
+
+0:000> !exploitable
+Exploitability Classification: EXPLOITABLE
+Recommended Bug Title: Exploitable - User Mode Write AV starting at Sel5020+0x0000000000001c8f (Hash=0x48212a3e.0x0a027d20)
+
+User mode write access violations that are not near NULL are exploitable.
+0:000> lmvm Sel5020
+start    end        module name
+04190000 0444b000   Sel5020  C (no symbols)           
+    Loaded symbol image file: C:\Program Files\SEL\SEL5020\Sel5020.exe
+    Image path: C:\Program Files\SEL\SEL5020\Sel5020.exe
+    Image name: Sel5020.exe
+    Timestamp:        Fri Jun 19 17:22:17 1992 (2A425E19)
+    CheckSum:         00000000
+    ImageSize:        002BB000
+    File version:     3.60.3.0
+    Product version:  3.60.3.0
+    File flags:       0 (Mask 3F)
+    File OS:          40004 NT Win32
+    File type:        1.0 App
+    File date:        00000000.00000000
+    Translations:     0409.04e4
+    CompanyName:      Schweitzer Engineering Laboratories,Inc.
+    ProductName:      SEL-5020 Settings Assistant Software
+    InternalName:     SEL5020.exe
+    OriginalFilename: SEL5020.exe
+    ProductVersion:   3.60.3.0
+    FileVersion:      3.60.3.0
+    FileDescription:  SEL-5020 Settings Assistant Software
+    LegalCopyright:   Copyright © Schweitzer Engineering Laboratories, Inc.  All rights reserved.
+    Comments:         http://www.selinc.com
+
+//debug
+

@@ -1,0 +1,1 @@
+SEL-5030 acSELerator QuickSet Software comes bundle with AcSELerator Analytic Assistant and SEL SynchroWave Event. Both are vulnerable to disclosed issues making any user of SEL-5030 acSELerator QuickSet vulnerable.

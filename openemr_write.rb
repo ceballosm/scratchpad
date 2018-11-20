@@ -15,7 +15,7 @@ class MetasploitModule < Msf::Auxiliary
       'References'     => [[ 'URL', 'https://insecurity.sh/reports/openemr.pdf' ]],
       'Targets'        => [[ 'OpenEMR v5.0.1.3', {}]],
       'DefaultTarget'  => 0,
-      'DisclosureDate' => 'Apr 5 2018'
+      'DisclosureDate' => 'Apr 30 2018'
     ))
 
     register_options( [ Opt::RPORT(80),

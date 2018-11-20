@@ -25,7 +25,7 @@ class MetasploitModule < Msf::Exploit::Remote
       'Platform'       => 'php',
       'Arch'           => ARCH_PHP,
       'DefaultTarget'  => 0,
-      'DisclosureDate' => 'Apr 5 2018'
+      'DisclosureDate' => 'Apr 30 2018'
     ))
 
     register_options( [ Opt::RPORT(80),

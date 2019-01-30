@@ -6,3 +6,5 @@ acSELerator QuickSet is also vulnerable.
 
 6.7.7.2 looks to be updated to fix the zip traversal issue.
 The memory corruption issue still exist. partial fix.
+
+6.8.1.0 the memory corruption still exist.

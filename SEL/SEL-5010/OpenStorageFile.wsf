@@ -1,0 +1,12 @@
+<?XML version='1.0' standalone='yes' ?>
+<package><job id='DoneInVBS' debug='false' error='true'>
+<object classid='clsid:99D12101-0932-11D2-ABF4-DDB58AFC6FB0' id='target' />
+<script language='vbscript'>
+
+
+arg1=String(2068, "A")
+arg2=1
+
+target.OpenStorageFile arg1 ,arg2 
+
+</script></job></package>

@@ -1,0 +1,30 @@
+SEL-5056 Flow Controller 
+Version: 1.4.0.0
+Date Code: 20180301
+
+The issue is that a unprivileged local (or remote, depending how 
+the software is commissioned) attacker can gain elevated operating system 
+privileges (NT AUTHORITY\SYSTEM) on a host running the SEL-5056 
+Flow Controller enterprise software. 
+
+Two vulnerabilities, a directory traversal and binary planting
+allow for successful exploitation.
+
+The directory traversal is due to a old version of the 
+Ionic Zip Library being used to explode the zip archive
+when restoring a database. When the archive gets extracted,
+the library does not check paths and can be abused to place
+arbitrary files into arbitrary locations (Flow Controller should
+santized the content of any archive for something other than a
+database file?).
+
+The binary planting issue is due to the main service process
+for Flow Controller resolving library's that don't exist on the
+file system. When the database archive is uploaded, the Flow Controller
+process restarts. With this restart, any library that is missing (which I
+replace) will get loaded and run as the main process privileges 
+(NT AUTHORITY\SYSTEM). 
+
+The missing library's could be something that may have existed in the
+developer's enviroment? My exploit uses 'VERSION.dll', but there
+are others that can be used.

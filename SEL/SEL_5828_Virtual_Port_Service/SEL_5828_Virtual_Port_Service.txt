@@ -1,0 +1,6 @@
+SEL Virtual Port Software 
+Version:  1.3.0.0
+
+The service 'VirtualPortService.Engine.exe' can be abused to escalate
+privileges due to an unquoted service path vulnerability.
+

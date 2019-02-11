@@ -1,0 +1,16 @@
+SEL-3378 SVP Configurator 
+Version: 2.3.7.2-2.2-1
+Date Code: 20140805
+
+
+SEL-3378 SVP Configurator process 'Gateway.exe' can be abuse to create arbitrary files
+as the currently logged in user.
+
+The 'Gateway.exe' process is started once a project is loaded and the login
+button is clicked (1.PNG). The process listens on TCP ports 1210 and 1211 (2.PNG). Both
+ports are reachable from the network. The 'Gateway.exe' process allows for
+various actions to be passed to it via opcodes. Opcode 6 (calls CreateFileA()) allows for file
+creation (3.PNG). By abusing this, an attacker can run arbitrary code in the
+context of the currently logged in user (My poc simply creates a file in 
+%SYSTEMDRIVE%).   
+

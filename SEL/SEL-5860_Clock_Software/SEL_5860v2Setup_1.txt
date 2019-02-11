@@ -1,0 +1,9 @@
+
+SEL-5860 Clock Software 
+Version:  2.0.0.11
+
+The service 'SEL5860v2TimeService32.exe' can be abused to escalate
+privileges due to an unquoted service path vulnerability.
+
+
+

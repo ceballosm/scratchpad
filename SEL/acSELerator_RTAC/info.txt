@@ -1,0 +1,4 @@
+LibraryExtensionInstaller
+
+A specially crafted .rext archive can allow for arbitrary
+files to be placed on an engineer's workstation.

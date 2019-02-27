@@ -1,0 +1,645 @@
+<RTACModule>
+  <CustomApplicationDefinition>
+    <Name>C:\\Users\\mc\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs</Name>
+    <Version>1.33.7</Version>
+    <Description>Configure and deploy a CDC Type 2 Server on the RTAC.</Description>
+    <Files>
+      <File name="cdc.py">
+        <Function name="generate" type="Generator"/>
+      </File>
+    </Files>
+    <SettingPages>
+      <Ranges>
+        <Range id="bool">
+          <Value>True</Value>
+          <Value>False</Value>
+        </Range>
+      </Ranges>
+      <!-- Add the Settings tab -->
+      <SettingPage>
+        <Name>Settings</Name>
+        <Columns>
+          <Column enabled="false">
+            <Name>Setting</Name>
+            <Caption>Setting</Caption>
+          </Column>
+          <Column>
+            <Name>Value</Name>
+            <Caption>Value</Caption>
+          </Column>
+          <Column enabled="false">
+            <Name>Range</Name>
+            <Caption>Range</Caption>
+          </Column>
+          <Column enabled="false">
+            <Name>Description</Name>
+            <Caption>Description</Caption>
+          </Column>
+          <Column>
+            <Name>Comment</Name>
+            <Caption>Comment</Caption>
+          </Column>
+        </Columns>
+        <Row>
+          <Setting>
+            <Column>Setting</Column>
+            <Value>Serial Communications Port</Value>
+          </Setting>
+          <Setting>
+            <Column>Value</Column>
+            <Value>Com_03</Value>
+            <Range>
+              <Value>Unused</Value>
+              <Value>Com_01</Value>
+              <Value>Com_02</Value>
+              <Value>Com_03</Value>
+              <Value>Com_04</Value>
+              <Value>Com_05</Value>
+              <Value>Com_06</Value>
+              <Value>Com_07</Value>
+              <Value>Com_08</Value>
+              <Value>Com_09</Value>
+              <Value>Com_10</Value>
+              <Value>Com_11</Value>
+              <Value>Com_12</Value>
+              <Value>Com_13</Value>
+              <Value>Com_14</Value>
+              <Value>Com_15</Value>
+              <Value>Com_16</Value>
+              <Value>Com_17</Value>
+              <Value>Com_18</Value>
+              <Value>Com_19</Value>
+              <Value>Com_20</Value>
+              <Value>Com_21</Value>
+              <Value>Com_22</Value>
+              <Value>Com_23</Value>
+              <Value>Com_24</Value>
+              <Value>Com_25</Value>
+              <Value>Com_26</Value>
+            </Range>
+          </Setting>
+          <Setting>
+            <Column>Range</Column>
+            <Value>Unused, Com_01 - Com_26</Value>
+          </Setting>
+          <Setting>
+            <Column>Description</Column>
+            <Value>Number of the RTAC serial port this CDC Type 2 Server will use.</Value>
+          </Setting>
+          <Setting>
+            <Column>Comment</Column>
+            <Value></Value>
+          </Setting>
+        </Row>
+        <Row>
+          <Setting>
+            <Column>Setting</Column>
+            <Value>Serial Communications Port Type</Value>
+          </Setting>
+          <Setting>
+            <Column>Value</Column>
+            <Value>EIA232</Value>
+            <Range>
+              <Value>EIA232</Value>
+              <Value>EIA485/422</Value>
+            </Range>
+          </Setting>
+          <Setting>
+            <Column>Range</Column>
+            <Value>EIA232, EIA485/422</Value>
+          </Setting>
+          <Setting>
+            <Column>Description</Column>
+            <Value>Serial communication type.</Value>
+          </Setting>
+          <Setting>
+            <Column>Comment</Column>
+            <Value></Value>
+          </Setting>
+        </Row>
+        <Row>
+          <Setting>
+            <Column>Setting</Column>
+            <Value>Baud Rate</Value>
+          </Setting>
+          <Setting>
+            <Column>Value</Column>
+            <Value>19200</Value>
+            <Range>
+              <Value>300</Value>
+              <Value>1200</Value>
+              <Value>2400</Value>
+              <Value>4800</Value>
+              <Value>9600</Value>
+              <Value>19200</Value>
+              <Value>38400</Value>
+              <Value>57600</Value>
+              <Value>115200</Value>
+            </Range>
+          </Setting>
+          <Setting>
+            <Column>Range</Column>
+            <Value>300,1200,2400,4800,9600,19200,38400,57600,115200</Value>
+          </Setting>
+          <Setting>
+            <Column>Description</Column>
+            <Value>Baud Rate</Value>
+          </Setting>
+          <Setting>
+            <Column>Comment</Column>
+            <Value></Value>
+          </Setting>
+        </Row>
+        <Row>
+          <Setting>
+            <Column>Setting</Column>
+            <Value>Enable Port Auxiliary Power</Value>
+          </Setting>
+          <Setting>
+            <Column>Value</Column>
+            <Value>False</Value>
+            <Range>
+              <Value>True</Value>
+              <Value>False</Value>
+            </Range>
+          </Setting>
+          <Setting>
+            <Column>Range</Column>
+            <Value>True, False</Value>
+          </Setting>
+          <Setting>
+            <Column>Description</Column>
+            <Value>Setting to TRUE enables +5Vdc power on pin 1 of the 9 pin serial port connector.</Value>
+          </Setting>
+          <Setting>
+            <Column>Comment</Column>
+            <Value></Value>
+          </Setting>
+        </Row>
+        <Row>
+          <Setting>
+            <Column>Setting</Column>
+            <Value>RTS Control</Value>
+          </Setting>
+          <Setting>
+            <Column>Value</Column>
+            <Value>Switched</Value>
+          </Setting>
+          <Setting>
+            <Column>Range</Column>
+            <Value>Switched, Force_On</Value>
+          </Setting>
+          <Setting>
+            <Column>Description</Column>
+            <Value>Force_On leaves RTS line high; Switched causes RTS to be asserted while transmitting and deasserted otherwise.</Value>
+          </Setting>
+          <Setting>
+            <Column>Comment</Column>
+            <Value></Value>
+          </Setting>
+        </Row>
+        <Row>
+          <Setting>
+            <Column>Setting</Column>
+            <Value>RTS Preamble</Value>
+          </Setting>
+          <Setting>
+            <Column>Value</Column>
+            <Value>40</Value>
+          </Setting>
+          <Setting>
+            <Column>Range</Column>
+            <Value>0-1000 (milliseconds)</Value>
+          </Setting>
+          <Setting>
+            <Column>Description</Column>
+            <Value>Specify the length of time to hold RTS high before message transmission. Works in conjunction with the RTS_Control setting.</Value>
+          </Setting>
+          <Setting>
+            <Column>Comment</Column>
+            <Value></Value>
+          </Setting>
+        </Row>
+        <Row>
+          <Setting>
+            <Column>Setting</Column>
+            <Value>RTS Postamble</Value>
+          </Setting>
+          <Setting>
+            <Column>Value</Column>
+            <Value>25</Value>
+          </Setting>
+          <Setting>
+            <Column>Range</Column>
+            <Value>0-1000 (milliseconds)</Value>
+          </Setting>
+          <Setting>
+            <Column>Description</Column>
+            <Value>Specify the length of time to hold RTS high after message transmission. Works in conjunction with the RTS_Control setting.</Value>
+          </Setting>
+          <Setting>
+            <Column>Comment</Column>
+            <Value></Value>
+          </Setting>
+        </Row>
+        <Row>
+          <Setting>
+            <Column>Setting</Column>
+            <Value>Inter Message Delay</Value>
+          </Setting>
+          <Setting>
+            <Column>Value</Column>
+            <Value>40</Value>
+          </Setting>
+          <Setting>
+            <Column>Range</Column>
+            <Value>0-1000 (milliseconds)</Value>
+          </Setting>
+          <Setting>
+            <Column>Description</Column>
+            <Value>Length of time after time of last received data before RTS can be asserted, if applicable, and transmission can begin.</Value>
+          </Setting>
+          <Setting>
+            <Column>Comment</Column>
+            <Value></Value>
+          </Setting>
+        </Row>
+        <Row>
+          <Setting>
+            <Column>Setting</Column>
+            <Value>RTU Address</Value>
+          </Setting>
+          <Setting>
+            <Column>Value</Column>
+            <Value>1</Value>
+          </Setting>
+          <Setting>
+            <Column>Range</Column>
+            <Value>0-13,15</Value>
+          </Setting>
+          <Setting>
+            <Column>Description</Column>
+            <Value>The RTU identifier.</Value>
+          </Setting>
+          <Setting>
+            <Column>Comment</Column>
+            <Value></Value>
+          </Setting>
+        </Row>
+        <Row>
+          <Setting>
+            <Column>Setting</Column>
+            <Value>Local Freeze</Value>
+          </Setting>
+          <Setting>
+            <Column>Value</Column>
+            <Value>True</Value>
+            <Range>
+              <Value>True</Value>
+              <Value>False</Value>
+            </Range>
+          </Setting>
+          <Setting>
+            <Column>Range</Column>
+            <Value>True,False</Value>
+          </Setting>
+          <Setting>
+            <Column>Description</Column>
+            <Value>Indicates whether or not the server should freeze the values of the counters locally. If FALSE, the server simply asserts the Freeze output on the Controller when a Freeze is received.</Value>
+          </Setting>
+          <Setting>
+            <Column>Comment</Column>
+            <Value></Value>
+          </Setting>
+        </Row>
+        <Row>
+          <Setting>
+            <Column>Setting</Column>
+            <Value>Select Timeout</Value>
+          </Setting>
+          <Setting>
+            <Column>Value</Column>
+            <Value>5</Value>
+          </Setting>
+          <Setting>
+            <Column>Range</Column>
+            <Value>1-60 (seconds)</Value>
+          </Setting>
+          <Setting>
+            <Column>Description</Column>
+            <Value>Number of seconds before a select command times out, after which an Operate command will not be allowed.</Value>
+          </Setting>
+          <Setting>
+            <Column>Comment</Column>
+            <Value></Value>
+          </Setting>
+        </Row>
+      </SettingPage>
+      <!-- Add the 2Bit Change Detect Tab -->
+      <SettingPage canAddSettingRows="true" maxRows="256">
+        <Name>2Bit Change Detect</Name>
+        <Columns>
+          <Column rangeType="bool">
+            <Name>Enable</Name>
+            <Caption>Enable</Caption>
+            <DefaultValue>True</DefaultValue>
+          </Column>
+          <Column>
+            <Name>Tag_Name</Name>
+            <Caption>Tag Name</Caption>
+            <DefaultValue formatObject="rowIndex">CD2_{0:d3}</DefaultValue>
+          </Column>
+          <Column enabled="false">
+            <Name>Tag_Type</Name>
+            <Caption>Tag Type</Caption>
+            <DefaultValue>SPS</DefaultValue>
+          </Column>
+          <Column>
+            <Name>Point_Number</Name>
+            <Caption>Point Number</Caption>
+            <DefaultValue formatObject="rowIndex">{0}</DefaultValue>
+          </Column>
+          <Column rangeType="bool">
+            <Name>Status_Value</Name>
+            <Caption>Status Value</Caption>
+            <DefaultValue>False</DefaultValue>
+          </Column>
+          <Column>
+            <Name>Comment</Name>
+            <Caption>Comment</Caption>
+          </Column>
+        </Columns>
+      </SettingPage>
+      <!-- Add the 1Bit Change Detect Tab -->
+      <SettingPage canAddSettingRows="true" maxRows="256">
+        <Name>1Bit Change Detect</Name>
+        <Columns>
+          <Column rangeType="bool">
+            <Name>Enable</Name>
+            <Caption>Enable</Caption>
+            <DefaultValue>True</DefaultValue>
+          </Column>
+          <Column>
+            <Name>Tag_Name</Name>
+            <Caption>Tag Name</Caption>
+            <DefaultValue formatObject="rowIndex">CD1_{0:d3}</DefaultValue>
+          </Column>
+          <Column enabled="false">
+            <Name>Tag_Type</Name>
+            <Caption>Tag Type</Caption>
+            <DefaultValue>SPS</DefaultValue>
+          </Column>
+          <Column>
+            <Name>Point_Number</Name>
+            <Caption>Point Number</Caption>
+            <DefaultValue formatObject="rowIndex">{0}</DefaultValue>
+          </Column>
+          <Column rangeType="bool">
+            <Name>Status_Value</Name>
+            <Caption>Status Value</Caption>
+            <DefaultValue>False</DefaultValue>
+          </Column>
+          <Column>
+            <Name>Comment</Name>
+            <Caption>Comment</Caption>
+          </Column>
+        </Columns>
+      </SettingPage>
+      <!-- Add the Simple Status Tab -->
+      <SettingPage canAddSettingRows="true" maxRows="256">
+        <Name>Simple Status</Name>
+        <Columns>
+          <Column rangeType="bool">
+            <Name>Enable</Name>
+            <Caption>Enable</Caption>
+            <DefaultValue>True</DefaultValue>
+          </Column>
+          <Column>
+            <Name>Tag_Name</Name>
+            <Caption>Tag Name</Caption>
+            <DefaultValue formatObject="rowIndex">SS_{0:d3}</DefaultValue>
+          </Column>
+          <Column enabled="false">
+            <Name>Tag_Type</Name>
+            <Caption>Tag Type</Caption>
+            <DefaultValue>SPS</DefaultValue>
+          </Column>
+          <Column>
+            <Name>Point_Number</Name>
+            <Caption>Point Number</Caption>
+            <DefaultValue formatObject="rowIndex">{0}</DefaultValue>
+          </Column>
+          <Column rangeType="bool">
+            <Name>Status_Value</Name>
+            <Caption>Status Value</Caption>
+            <DefaultValue>False</DefaultValue>
+          </Column>
+          <Column>
+            <Name>Comment</Name>
+            <Caption>Comment</Caption>
+          </Column>
+        </Columns>
+      </SettingPage>
+      <!-- Add the SOE Tab -->
+      <SettingPage canAddSettingRows="true" maxRows="256">
+        <Name>SOE</Name>
+        <Columns>
+          <Column rangeType="bool">
+            <Name>Enable</Name>
+            <Caption>Enable</Caption>
+            <DefaultValue>True</DefaultValue>
+          </Column>
+          <Column>
+            <Name>Tag_Name</Name>
+            <Caption>Tag Name</Caption>
+            <DefaultValue formatObject="rowIndex">SOE_{0:d3}</DefaultValue>
+          </Column>
+          <Column enabled="false">
+            <Name>Tag_Type</Name>
+            <Caption>Tag Type</Caption>
+            <DefaultValue>SPS</DefaultValue>
+          </Column>
+          <Column>
+            <Name>Point_Number</Name>
+            <Caption>Point Number</Caption>
+            <DefaultValue formatObject="rowIndex">{0}</DefaultValue>
+          </Column>
+          <Column rangeType="bool">
+            <Name>Status_Value</Name>
+            <Caption>Status Value</Caption>
+            <DefaultValue>False</DefaultValue>
+          </Column>
+          <Column>
+            <Name>Comment</Name>
+            <Caption>Comment</Caption>
+          </Column>
+        </Columns>
+      </SettingPage>
+      <!-- Add the Analog Input Tab -->
+      <SettingPage canAddSettingRows="true" maxRows="128">
+        <Name>Analog Inputs</Name>
+        <Columns>
+          <Column rangeType="bool">
+            <Name>Enable</Name>
+            <Caption>Enable</Caption>
+            <DefaultValue>True</DefaultValue>
+          </Column>
+          <Column>
+            <Name>Tag_Name</Name>
+            <Caption>Tag Name</Caption>
+            <DefaultValue formatObject="rowIndex">AI_{0:d3}</DefaultValue>
+          </Column>
+          <Column enabled="false">
+            <Name>Tag_Type</Name>
+            <Caption>Tag Type</Caption>
+            <DefaultValue>INS</DefaultValue>
+          </Column>
+          <Column>
+            <Name>Point_Number</Name>
+            <Caption>Point Number</Caption>
+            <DefaultValue formatObject="rowIndex">{0}</DefaultValue>
+          </Column>
+          <Column>
+            <Name>Status_Value</Name>
+            <Caption>Status Value</Caption>
+            <DefaultValue>0</DefaultValue>
+          </Column>
+          <Column>
+            <Name>Comment</Name>
+            <Caption>Comment</Caption>
+          </Column>
+        </Columns>
+      </SettingPage>
+      <!-- Add the Accumulators Tab -->
+      <SettingPage canAddSettingRows="true" maxRows="32">
+        <Name>Accumulators</Name>
+        <Columns>
+          <Column rangeType="bool">
+            <Name>Enable</Name>
+            <Caption>Enable</Caption>
+            <DefaultValue>True</DefaultValue>
+          </Column>
+          <Column>
+            <Name>Tag_Name</Name>
+            <Caption>Tag Name</Caption>
+            <DefaultValue formatObject="rowIndex">ACC_{0:d3}</DefaultValue>
+          </Column>
+          <Column enabled="false">
+            <Name>Tag_Type</Name>
+            <Caption>Tag Type</Caption>
+            <DefaultValue>BCR</DefaultValue>
+          </Column>
+          <Column>
+            <Name>Point_Number</Name>
+            <Caption>Point Number</Caption>
+            <DefaultValue formatObject="rowIndex">{0}</DefaultValue>
+          </Column>
+          <Column>
+            <Name>Actual_Value</Name>
+            <Caption>Actual Value</Caption>
+            <DefaultValue>0</DefaultValue>
+          </Column>
+          <Column>
+            <Name>Frozen_Value</Name>
+            <Caption>Frozen Value</Caption>
+            <DefaultValue>0</DefaultValue>
+          </Column>
+          <Column>
+            <Name>Comment</Name>
+            <Caption>Comment</Caption>
+          </Column>
+        </Columns>
+      </SettingPage>
+      <!-- Add the Trip/Close Tab -->
+      <SettingPage canAddSettingRows="true" maxRows="256">
+        <Name>Trip/Close</Name>
+        <Columns>
+          <Column rangeType="bool">
+            <Name>Enable</Name>
+            <Caption>Enable</Caption>
+            <DefaultValue>True</DefaultValue>
+          </Column>
+          <Column>
+            <Name>Tag_Name</Name>
+            <Caption>Tag Name</Caption>
+            <DefaultValue formatObject="rowIndex">TC_{0:d3}</DefaultValue>
+          </Column>
+          <Column enabled="false">
+            <Name>Tag_Type</Name>
+            <Caption>Tag Type</Caption>
+            <DefaultValue>SPC</DefaultValue>
+          </Column>
+          <Column>
+            <Name>Point_Number</Name>
+            <Caption>Point Number</Caption>
+            <DefaultValue formatObject="rowIndex">{0}</DefaultValue>
+          </Column>
+          <Column>
+            <Name>Comment</Name>
+            <Caption>Comment</Caption>
+          </Column>
+        </Columns>
+      </SettingPage>
+      <!-- Add the Raise/Lower Tab -->
+      <SettingPage canAddSettingRows="true" maxRows="8">
+        <Name>Raise/Lower</Name>
+        <Columns>
+          <Column rangeType="bool">
+            <Name>Enable</Name>
+            <Caption>Enable</Caption>
+            <DefaultValue>True</DefaultValue>
+          </Column>
+          <Column>
+            <Name>Tag_Name</Name>
+            <Caption>Tag Name</Caption>
+            <DefaultValue formatObject="rowIndex">RL_{0:d3}</DefaultValue>
+          </Column>
+          <Column enabled="false">
+            <Name>Tag_Type</Name>
+            <Caption>Tag Type</Caption>
+            <DefaultValue>SPC</DefaultValue>
+          </Column>
+          <Column>
+            <Name>Point_Number</Name>
+            <Caption>Point Number</Caption>
+            <DefaultValue formatObject="rowIndex">{0}</DefaultValue>
+          </Column>
+          <Column>
+            <Name>Comment</Name>
+            <Caption>Comment</Caption>
+          </Column>
+        </Columns>
+      </SettingPage>
+      <!-- Add the Setpoint Tab -->
+      <SettingPage canAddSettingRows="true" maxRows="16">
+        <Name>Setpoint</Name>
+        <Columns>
+          <Column rangeType="bool">
+            <Name>Enable</Name>
+            <Caption>Enable</Caption>
+            <DefaultValue>True</DefaultValue>
+          </Column>
+          <Column>
+            <Name>Tag_Name</Name>
+            <Caption>Tag Name</Caption>
+            <DefaultValue formatObject="rowIndex">SP_{0:d3}</DefaultValue>
+          </Column>
+          <Column enabled="false">
+            <Name>Tag_Type</Name>
+            <Caption>Tag Type</Caption>
+            <DefaultValue>INC</DefaultValue>
+          </Column>
+          <Column>
+            <Name>Point_Number</Name>
+            <Caption>Point Number</Caption>
+            <DefaultValue formatObject="rowIndex">{0}</DefaultValue>
+          </Column>
+          <Column>
+            <Name>Comment</Name>
+            <Caption>Comment</Caption>
+          </Column>
+        </Columns>
+      </SettingPage>
+    </SettingPages>
+  </CustomApplicationDefinition>
+</RTACModule>

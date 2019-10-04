@@ -75,7 +75,7 @@ class MetasploitModule < Msf::Exploit::Remote
    data = Array.new
 
    print_status("Getting system images")
-   res = `#{@dockercli} -H tcp://#{datastore['RHOSTS']} images`
+   res = `#{@dockercli} -H tcp://#{datastore['RHOSTS']}:#{datastore['RPORT']} images`
     res.each_line do |x|
       data << x
     end

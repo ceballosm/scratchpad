@@ -1,6 +1,6 @@
 SEL-5020 Settings Assistant Software
-Version: 3.60.3.0
-Date Code: 20110809
+Version: 3.60.3.0 -> 3.60.4.0
+Date Code: 20110809 -> 20190917
 
 
 SEL-5020 Settings Assistant Software contains a buffer overflow in the 'Sel5020.exe' process. 

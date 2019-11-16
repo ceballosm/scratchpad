@@ -8,6 +8,7 @@ string message() {
 }
  
 predicate os_function_call(Call c) {
+    exists(GlobalVariable os | os = ((Name)c.getFunc()).getVariable() and os.getId() = "eval") or
     exists(GlobalVariable os | os = ((Name)c.getFunc()).getVariable() and os.getId() = "popen") or
     exists(GlobalVariable os | os = ((Name)c.getFunc()).getVariable() and os.getId() = "Popen") or
     exists(GlobalVariable os | os = ((Name)c.getFunc()).getVariable() and os.getId() = "run") or

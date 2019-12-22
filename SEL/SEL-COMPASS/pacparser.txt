@@ -1,0 +1,2 @@
+pacparser.exe -p pac.txt -u http://www.google.com -c <buffer>
+

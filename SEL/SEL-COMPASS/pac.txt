@@ -1,0 +1,9 @@
+function FindProxyForURL(url, host) {
+ 
+    if (isInNet(myIpAddress(), "127.0.0.1", "255.255.255.0"))
+        return "PROXY 1.2.3.4:8080";
+ 
+// DEFAULT RULE: All other traffic, use below proxies, in fail-over order.
+    return "PROXY localhost:8080; PROXY localhost:8080";
+ 
+}

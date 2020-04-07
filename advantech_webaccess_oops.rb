@@ -6,7 +6,7 @@ class MetasploitModule < Msf::Auxiliary
 
   def initialize(info = {})
     super(update_info(info,	
-      'Name'           => 'Advantech WebAccess webvrpcs RCE V8.4',
+      'Name'           => 'Advantech WebAccess webvrpcs RCE V9.0',
       'Description'    => %q{
           This module abuses the openssl binary  given unc path hosting a executable payload.
           This works if the Remote Accesss Code has not been set. 

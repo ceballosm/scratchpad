@@ -8,3 +8,10 @@ acSELerator QuickSet is also vulnerable.
 The memory corruption issue still exist. partial fix.
 
 6.8.1.0 the memory corruption still exist.
+
+6.9.0.1 can create arbitrary directories when importing .ckf
+        files. quickset will create directories using hostname
+        found in manifest.txt. if a hostname is something like
+        Hostname=C:\dafuq
+        when the ckf is imported, the directory 'C:\dafuq' will 
+        be created.

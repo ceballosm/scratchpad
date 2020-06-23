@@ -1,0 +1,7 @@
+rules:
+  - id: exec-injection
+    pattern-either:
+      - pattern: app.job_manager.shell(...)
+    message: "Found user data in a call to 'shell'. This is extremely dangerous because it can enable an attacker to execute remote code."
+    languages: [python]
+    severity: ERROR

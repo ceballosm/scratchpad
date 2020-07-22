@@ -39,9 +39,9 @@ class MetasploitModule < Msf::Exploit::Remote
 
     register_options(
       [
-        OptString.new('CMDURI', [true, "The full URI path with the parameter", "/capme/.inc/callback.php?d="]),
-	OptBool.new('SSL', [true, 'Use SSL', true]),
-	Opt::RPORT(443)
+      OptString.new('CMDURI', [true, "The full URI path with the parameter", "/capme/.inc/callback.php?d="]),
+      OptBool.new('SSL', [true, 'Use SSL', true]),
+      Opt::RPORT(443)
       ], self.class)
   end
 

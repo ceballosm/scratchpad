@@ -1,0 +1,6 @@
+
+QConvergeConsole_Installer_Linux_x64_5_4_0_48.bin
+
+[root@localhost apache-tomcat-7.0.72]# grep QCC ./conf/tomcat-users.xml
+  <user username="QCC" password="QLogic66" roles="admin, manager, manager-gui, manager-script, manager-jmx, manager-status, admin-gui, admin-script"/>
+

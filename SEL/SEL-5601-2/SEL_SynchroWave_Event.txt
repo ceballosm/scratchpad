@@ -1,5 +1,5 @@
 synchroWAVe EVENT RELAY EVENT VISUALIZATION AND ANALYSIS SOFTWARE.
-version 1.6.3.568 (20201022) can be abuse to run arbitrary code when
+version 1.6.3.568 (20201022) can be abused to run arbitrary code when
 a user selects 'Open Auto-Template Folder'. When selected, the application
-will load 'explorer.exe' from current users desktop.
+will load 'explorer.exe' from the current users desktop.
 

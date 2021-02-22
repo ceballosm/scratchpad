@@ -1,0 +1,17 @@
+http://www.vtexplorer.com/downloads-en/ 
+
+VTExplorer ver 6.13
+
+
+C:\>cacls "VT Explorer"
+C:\VT Explorer BUILTIN\Administrators:(OI)(CI)(ID)F
+               NT AUTHORITY\SYSTEM:(OI)(CI)(ID)F
+               BUILTIN\Users:(OI)(CI)(ID)R                    <<-- replace any exe/dll
+               NT AUTHORITY\Authenticated Users:(ID)C
+               NT AUTHORITY\Authenticated Users:(OI)(CI)(IO)(ID)C
+
+
+
+
+
+

@@ -20,7 +20,6 @@ sock = Rex::Proto::Http::Client.new(host,
                                     context = {}, 
                                     ssl = false)
 
-
 req = sock.request_cgi(
 {
 	'uri'   => '/ntp_sync.cgi',
@@ -34,7 +33,6 @@ req = sock.request_cgi(
          'Accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
         },
 })
-
 
 sock.send_request(req)
 data = sock.read_response()

